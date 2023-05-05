@@ -1,1 +1,1 @@
-export * from './lib/example.interface';
+export * from './lib/user.interface';

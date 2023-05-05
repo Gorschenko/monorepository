@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@octus/database": ["libs/database/src/index.ts"],
       "@octus/interfaces": ["libs/interfaces/src/index.ts"]
     }
   },
