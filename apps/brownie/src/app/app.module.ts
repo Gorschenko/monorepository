@@ -9,7 +9,7 @@ import { getMongoConfig } from './configs/mongo.config';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: 'envs/.api-admin.env',
+      envFilePath: 'envs/.brownie.env',
     }),
     MongooseModule.forRootAsync(getMongoConfig()),
     UserModule,
