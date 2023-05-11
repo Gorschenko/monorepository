@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, HttpException, Post } from '@nestjs/common';
 import { UserCreate, UserLogin } from '@octus/contracts';
 import { UserService } from '../user/user.service';
 import { AuthService } from './auth.service';
@@ -11,11 +11,14 @@ export class AuthController {
   ) {}
 
   @Post(UserCreate.topic)
-  async createUser(
-    @Body() dto: UserCreate.Request
-  ): Promise<UserCreate.Response> {
-    const newUser = await this.userService.createUser(dto);
-    return { user: newUser };
+  async createUser(@Body() dto: UserCreate.Request) {
+    // ): Promise<UserCreate.Response> {
+    throw new Error('Такой пользователь уже создан');
+    return {
+      hi: 123,
+    };
+    // const newUser = await this.userService.createUser(dto);
+    // return { user: newUser };
   }
 
   @Post(UserLogin.topic)
