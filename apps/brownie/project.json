@@ -1,7 +1,7 @@
 {
-  "name": "api-admin",
+  "name": "brownie",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/api-admin/src",
+  "sourceRoot": "apps/brownie/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -11,12 +11,12 @@
       "options": {
         "target": "node",
         "compiler": "tsc",
-        "outputPath": "dist/apps/api-admin",
-        "main": "apps/api-admin/src/main.ts",
-        "tsConfig": "apps/api-admin/tsconfig.app.json",
-        "assets": ["apps/api-admin/src/assets"],
+        "outputPath": "dist/apps/brownie",
+        "main": "apps/brownie/src/main.ts",
+        "tsConfig": "apps/brownie/tsconfig.app.json",
+        "assets": ["apps/brownie/src/assets"],
         "isolatedConfig": true,
-        "webpackConfig": "apps/api-admin/webpack.config.js"
+        "webpackConfig": "apps/brownie/webpack.config.js"
       },
       "configurations": {
         "development": {},
@@ -27,14 +27,14 @@
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "api-admin:build"
+        "buildTarget": "brownie:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "api-admin:build:development"
+          "buildTarget": "brownie:build:development"
         },
         "production": {
-          "buildTarget": "api-admin:build:production"
+          "buildTarget": "brownie:build:production"
         }
       }
     },
@@ -42,14 +42,14 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/api-admin/**/*.ts"]
+        "lintFilePatterns": ["apps/brownie/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/api-admin/jest.config.ts",
+        "jestConfig": "apps/brownie/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
