@@ -3,8 +3,10 @@ import { UserService } from './user.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from '@octus/database';
 import { UserRepository } from './user.repository';
+import { UserContoller } from './user.controller';
 
 @Module({
+  controllers: [UserContoller],
   imports: [
     MongooseModule.forFeature([
       {

@@ -10,6 +10,7 @@ export class UserEntity implements IUser {
     this._id = user._id;
     this.flatNumber = user.flatNumber;
     this.passwordHash = user.passwordHash;
+    console.log(this);
   }
 
   public async setPassword(password: string) {
