@@ -9,7 +9,7 @@ export class CustomExceptionFilter implements ExceptionFilter {
     const res = ctx.getResponse<Response>();
     const statusCode = error instanceof HttpError ? error.statusCode : 500;
     res.status(statusCode).send({
-      ok: true,
+      ok: false,
       error: error.message,
       payload: null,
     });

@@ -2,32 +2,7 @@ import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
-import { CustomExceptionFilter } from '@octus/services';
-
-import {
-  Injectable,
-  NestInterceptor,
-  ExecutionContext,
-  CallHandler,
-} from '@nestjs/common';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-export interface Response<T> {
-  data: T;
-}
-
-@Injectable()
-export class TransformInterceptor<T>
-  implements NestInterceptor<T, Response<T>>
-{
-  intercept(
-    context: ExecutionContext,
-    next: CallHandler
-  ): Observable<Response<T>> {
-    return next.handle().pipe(map((data) => ({ data })));
-  }
-}
+import { CustomExceptionFilter, TransformInterceptor } from '@octus/services';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
