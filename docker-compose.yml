@@ -9,7 +9,7 @@ services:
     ports:
       - 4300:80
     networks:
-      - myNetwork
+      - defaultNetwork
   brownie:
     restart: always
     container_name: brownie
