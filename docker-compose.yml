@@ -1,0 +1,41 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./apps/app/Dockerfile
+    restart: always
+    container_name: app
+    ports:
+      - 4300:80
+    networks:
+      - myNetwork
+  brownie:
+    restart: always
+    container_name: brownie
+    build:
+      context: .
+      dockerfile: ./apps/brownie/Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./envs/.brownie.env:/opt/app/envs/.brownie.env
+    networks:
+      - defaultNetwork
+  mongodb:
+    restart: always
+    image: mongo:4.4.4
+    container_name: mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    command: mongod --port 27018 --wiredTigerCacheSizeGB 1.5
+    ports:
+      - 27018:27018
+    volumes:
+      - ./mongo-data-4.4:/data/db
+    networks:
+      - defaultNetwork
+networks:
+  defaultNetwork:
+    driver: bridge
