@@ -17,6 +17,9 @@ function App() {
   const checkApi = async () => {
     const response = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
       method: 'GET',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
     });
   };
   return (
