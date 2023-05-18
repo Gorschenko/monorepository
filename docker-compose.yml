@@ -19,7 +19,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./envs/.brownie.env:/opt/app/envs/.brownie.env
+      - ./envs/.brownie.prod.env:/opt/app/envs/.brownie.env
     networks:
       - defaultNetwork
   mongodb:
@@ -29,9 +29,9 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=admin
-    command: mongod --port 27018 --wiredTigerCacheSizeGB 1.5
+    command: --wiredTigerCacheSizeGB 1.5
     ports:
-      - 27018:27018
+      - 27017:27017
     volumes:
       - ./mongo-data-4.4:/data/db
     networks:

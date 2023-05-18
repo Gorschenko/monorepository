@@ -18,7 +18,6 @@ function App() {
     const response = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
       method: 'GET',
     });
-    console.log(response);
   };
   return (
     <div>
